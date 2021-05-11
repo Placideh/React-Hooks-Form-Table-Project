@@ -1,6 +1,6 @@
 import TableTitle from './TableTitle';
 import Tablerow from './Tablerow';
-export default function Table({will}){
+export default function Table({will,delTask}){
   return (
     <table>
       <thead>
@@ -9,7 +9,7 @@ export default function Table({will}){
       <tbody>
       {
         will.map(w=>{
-          return <Tablerow key={w.id} will={w}/>
+          return <Tablerow key={w.id} will={w} delTask={delTask}/>
         })
       }
       </tbody>
