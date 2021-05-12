@@ -3,8 +3,9 @@ function Header(){
   const[hello,setHello]=useState('');
   return (
     <div>
-    <h3>Placideh</h3>
-    <p>That is How I will be starting this thing!</p>
+    <h3>Home</h3>
+
+    <p><strong>All In One App</strong></p>
     <div>{hello}</div>
     <button  onClick ={()=>setHello(helloz)}>Click them Boy</button>
     </div>

@@ -1,9 +1,9 @@
 import {useState} from 'react';
-export default function InputForm({saveWill}){
+export default function InputForm({saveWill,savePost}){
   const [name,setName]=useState('');
   const [position,setPosition]=useState('');
   return (
-    <form onSubmit={(e)=>{e.preventDefault();saveWill(name,position)}}>
+    <form onSubmit={(e)=>{e.preventDefault();savePost({name,position})}}>
       <label>Name</label>
       <input type="text" onChange={e=>setName(e.target.value)}placeholder="name"/>
       <br/>
