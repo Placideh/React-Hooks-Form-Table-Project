@@ -7,8 +7,8 @@ export default function Routing(){
     <Router>
       <div>
         <nav>
-            <ul>
-                <li>
+            <ul style={{listStyle:'none'}}>
+                <li >
                   <Link to="/">Home</Link>
                 </li>
                 <li>
@@ -16,7 +16,7 @@ export default function Routing(){
                 </li>
                 <li>
                   <Link to="/users">Users</Link>
-                  
+
 
                 </li>
             </ul>

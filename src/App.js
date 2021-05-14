@@ -8,7 +8,11 @@ import Pagination from './components/Pagination';
 import Update from './components/Update';
 import Posts from './components/Posts';
 import Routing from './components/Routing';
-function App() {
+import SideMenu from './components/SideMenu';
+import HeaderBar from './components/HeaderBar';
+import { makeStyles,withStyles,CssBaseline} from '@material-ui/core';
+
+export default function App() {
   const [will,setWill]=useState([
     {
       id:1,
@@ -61,17 +65,28 @@ function App() {
   function onUpdate(w){
     setUpdate(<Update ids={w.id} names={w.name} positions={w.position} updateWill={updateWill}/>);
   }
+
+  const classes=useStyles();
   return (
-    <div className="App">
-    <Routing/>
-    <Header  />
-    <InputForm saveWill={onSave}/>
-    <Table will={paginatedItems} delTask={onDelete} onUpdate={onUpdate} getData={onUpdate}/>
-    <Pagination totalWill={will.length} rowsPerPage={rowsPerPage} paginate={paginate}/>
-    <>{update}</>
-    <Posts/>
-    </div>
+    <>
+    <SideMenu/>
+      <div className={classes.appMain}>
+        <HeaderBar/>
+        <Routing/>
+        <Header  />
+        <InputForm saveWill={onSave}/>
+        <Table will={paginatedItems} delTask={onDelete} onUpdate={onUpdate} getData={onUpdate}/>
+        <Pagination totalWill={will.length} rowsPerPage={rowsPerPage} paginate={paginate}/>
+        <>{update}</>
+        <Posts/>
+      </div>
+      <CssBaseline/>
+    </>
   );
 }
-
-export default App;
+const useStyles=makeStyles({
+  appMain:{
+    paddingLeft:'250px',
+    width:'100%'
+  }
+})
