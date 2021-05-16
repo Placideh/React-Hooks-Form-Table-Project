@@ -15,7 +15,7 @@ export default function SideMenu() {
   const classes=useStyles();
   return (
       <div className={classes.sideMenu}>
-          <h1>Hello World</h1>
+          <h1 style={{color:'#fff'}}>placideh@ead.com</h1>
       </div>
   );
 }

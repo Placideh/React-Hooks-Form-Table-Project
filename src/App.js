@@ -10,7 +10,41 @@ import Posts from './components/Posts';
 import Routing from './components/Routing';
 import SideMenu from './components/SideMenu';
 import HeaderBar from './components/HeaderBar';
-import { makeStyles,withStyles,CssBaseline} from '@material-ui/core';
+import PageHeader from './components/PageHeader';
+import { makeStyles,CssBaseline,createMuiTheme,ThemeProvider} from '@material-ui/core';
+import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
+
+const theme=createMuiTheme({
+  palette:{
+    primary:{
+
+    main:'#333996',
+    light:'#3c44b126'
+            },
+  secondary:{
+    main:'#f83245',
+    light:'#f8324526'
+  },
+  background:{
+    default:"#f4f5fd"
+  }
+  },
+  shape:{
+    borderRadius:'12px'
+  },
+  overrides:{
+    MuiAppBar:{
+      root:{
+        transform:'translateZ(0)'
+      }
+    }
+  },
+  props :{
+    MuiIconButton:{
+      disableRipple:true
+    }
+  }
+})
 
 export default function App() {
   const [will,setWill]=useState([
@@ -68,10 +102,11 @@ export default function App() {
 
   const classes=useStyles();
   return (
-    <>
+    <ThemeProvider theme={theme}>
     <SideMenu/>
       <div className={classes.appMain}>
         <HeaderBar/>
+        <PageHeader title="Page Header" subtitle="Page description" icon={<PeopleOutlineTwoToneIcon fontSize="large"/>}/>
         <Routing/>
         <Header  />
         <InputForm saveWill={onSave}/>
@@ -81,7 +116,7 @@ export default function App() {
         <Posts/>
       </div>
       <CssBaseline/>
-    </>
+    </ThemeProvider>
   );
 }
 const useStyles=makeStyles({
