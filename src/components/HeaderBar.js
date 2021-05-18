@@ -1,11 +1,11 @@
 import React from 'react';
-import {AppBar ,Toolbar,Typography } from '@material-ui/core';
+import {AppBar ,Toolbar } from '@material-ui/core';
 import {Grid ,InputBase,IconButton,Badge } from '@material-ui/core';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import SearchIcon from '@material-ui/icons/Search';
-import {makeStyles,withStyles } from '@material-ui/core';
+import {makeStyles } from '@material-ui/core';
 const useStyles=makeStyles(theme=>({
   root:{
     backgroundColor:'#fff',

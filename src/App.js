@@ -10,9 +10,8 @@ import Posts from './components/Posts';
 import Routing from './components/Routing';
 import SideMenu from './components/SideMenu';
 import HeaderBar from './components/HeaderBar';
-import PageHeader from './components/PageHeader';
 import { makeStyles,CssBaseline,createMuiTheme,ThemeProvider} from '@material-ui/core';
-import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
+import Employees from './pages/Employees/Employees';
 
 const theme=createMuiTheme({
   palette:{
@@ -86,9 +85,11 @@ export default function App() {
     let id=Math.ceil(Math.random()*100)+1;
     setWill([...will,{id,name,position}]);
   }
+  //something it is not well ordered
+  //about the assignment so I will be having to look on it back
   function updateWill(w){
     const newArray=will.filter((wil)=>{
-      return wil.id!=w.id;
+      return wil.id!==w.id;
     })
     newArray.push(w);
     const newSorted=newArray.sort((a,b)=>(a.id-b.id));
@@ -106,7 +107,6 @@ export default function App() {
     <SideMenu/>
       <div className={classes.appMain}>
         <HeaderBar/>
-        <PageHeader title="Page Header" subtitle="Page description" icon={<PeopleOutlineTwoToneIcon fontSize="large"/>}/>
         <Routing/>
         <Header  />
         <InputForm saveWill={onSave}/>
@@ -114,6 +114,7 @@ export default function App() {
         <Pagination totalWill={will.length} rowsPerPage={rowsPerPage} paginate={paginate}/>
         <>{update}</>
         <Posts/>
+        <Employees />
       </div>
       <CssBaseline/>
     </ThemeProvider>
